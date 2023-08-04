@@ -16,8 +16,15 @@
     https://www.arduino.cc/reference/en/language/variables/data-types/stringobject/
 */
 
-void setup() {
+String myString = "Hello World";
+int   myint = 3
+bool   mybool = "false";
+float  
 
+void setup() {
+ Serial.begin(9600);
+ Serial.println("serial monotor configured to 9600")
+ Serial.println("-----------------------")
 }
 
 void loop() {
