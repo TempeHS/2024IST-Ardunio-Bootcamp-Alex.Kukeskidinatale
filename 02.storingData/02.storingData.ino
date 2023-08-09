@@ -17,16 +17,20 @@
 */
 
 String myString = "Hello World";
-int   myint = 3
-bool   mybool = "false";
-float  
+int   myInt = 3;
+bool   myBool = "false";
+float  myFloat = 3.14;
+long  myLong = 3.1412926589;
 
 void setup() {
  Serial.begin(9600);
- Serial.println("serial monotor configured to 9600")
- Serial.println("-----------------------")
+ Serial.println("serial monotor configured to 9600");
+ Serial.println("-----------------------");
 }
 
 void loop() {
-
+Serial.println(String(myLong));
+myString = myBool;
+myBool = true;
+myInt = myFloat;
 }
