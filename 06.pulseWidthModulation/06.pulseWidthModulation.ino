@@ -15,11 +15,24 @@
     https://www.tinkercad.com/things/drNDsMxGMIY?sharecode=D6x4_xTTRl_zGs7B-XGqfbQhG_xgjj3TVS_c-GNTK-c
     https://github.com/TempeHS/TempeHS_Ardunio_Boilerplate/blob/main/Ardunio_Bootcamp/06.pulseWidthModulation/Bootcamp-PWMOutput.png
 */
+//allocate pin for LED
+unsigned static int myLED = 3;
 
 void setup() {
+  //setup and debug serial monitor
+Serial.begin(9600);
+Serial.println("SM WORKING");
+Serial.println("-----------------");
 
+//configure pin out 
+pinMode(myLED, OUTPUT);
 }
 
 void loop() {
 
+ for (int i = 0; i <= 255; i++) {
+analogWrite(myLED, i);
+Serial.println(i);
+delay(10);
+ }
 }
