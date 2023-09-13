@@ -29,8 +29,13 @@
 #include <Arduino.h>
 #include <Wire.h>
 
+#include "Seeed_BMP280.h"
+
 // include for OLED Display
 #include <U8g2lib.h>
+
+//Initiate pressure sensor
+BMP280 myPressureSensor;
 
 //config for OLED
 U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, /* clock=*/ SCL, /* data=*/ SDA, /* reset=*/ U8X8_PIN_NONE);  // High speed I2C
@@ -39,11 +44,16 @@ U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, /* clock=*/ SCL, /* data=*/ SD
 
 
 void setup() {
-u8g2.begin
+  //OLED Communication
+  u8g2.begin();
+
+//setup and debutpressure sensor
+  Serial.begin(9600);
+  if(!myPressureSensor.init()){
+  Serial.println("Device error!");
+  }
 }
 
-void loop() {
-float myTemp = 32;
-updateOLED(myTemp);
-
+void loop() 
+updateOLED (sampleTemperature());
 }
